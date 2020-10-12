@@ -32,22 +32,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// main
-const handler = (req, res) => {
-    const mainData = fs.readFileSync(path.join(__dirname, 'mainmenu.html'));
-    const deliveryData = fs.readFileSync(path.join(__dirname, 'delivery.html'));
-
-    console.log('req.url', req.url);
-
-    const { url } = req;
-
-    if (url === '/delivery') {
-        res.end(deliveryData);
-    } else {
-        res.end(mainData);
-    }
-};
-
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/auth', authRouter);

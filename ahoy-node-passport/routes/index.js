@@ -12,6 +12,9 @@ const isLoggedIn = (req, res, next) => {
 router.get('/', isLoggedIn, function(req, res, next) {
     res.render('index', { title: 'Express', user: req.session.user });
 });
+/*router.get('/delivery', isLoggedIn, function(req, res, next) {
+    res.render('delivery', { title: 'Express', user: req.session.user });
+});*/
 router.get('/register', (req, res) => {
     res.render('register')
 });
